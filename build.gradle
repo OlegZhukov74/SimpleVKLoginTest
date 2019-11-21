@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group 'groupID'
+group 'com.vk.qa'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
@@ -12,5 +12,23 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile 'com.codeborne:selenide:5.5.0'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.41.0'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-api', version: '3.141.59'
+    testCompile group: 'org.slf4j', name: 'slf4j-simple', version: '1.6.1'
+    compile 'org.testng:testng:6.14.3'
+}
+
+test {
+    useTestNG() {
+
+
+        // generate reports by TestNG library
+        useDefaultListeners = true
+    }
+
+    // display test events in console
+    testLogging {
+        events "PASSED", "FAILED", "SKIPPED"
+    }
 }
