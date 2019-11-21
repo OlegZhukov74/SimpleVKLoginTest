@@ -20,13 +20,17 @@ dependencies {
 }
 
 test {
-    systemProperty "baseUrl", "https://vk.com"
-    useTestNG() {
 
+    systemProperty "baseUrl", "https://vk.com"
+
+    //    def suite = "suites/$suiteName" + ".xml"
+    def suite = "suites/loginSuite" + ".xml"
+
+    useTestNG() {
+        suites suite
 
         // generate reports by TestNG library
         useDefaultListeners = true
-
 
     }
 
