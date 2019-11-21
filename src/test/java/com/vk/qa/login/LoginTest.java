@@ -14,7 +14,7 @@ public class LoginTest extends BaseTest {
     public Object[][] loginCredentialsEmail() {
         return new Object[][]{
                 {"umacte@gmail.com", "xxxxxxxxxxx"},
-//                {"asd@asd.zxc", "654321"}
+                {"asd@asd.zxc", "654321"}
         };
     }
 
@@ -22,7 +22,7 @@ public class LoginTest extends BaseTest {
     public Object[][] loginCredentialsPhone() {
         return new Object[][]{
                 {"89995847975", "xxxxxxxxxx"},
-//                {"89995847971", "654321"}
+                {"89995847971", "654321"}
         };
     }
 

@@ -7,7 +7,7 @@
     <test name="Test Name">
 
         <classes>
-            <class name="com.vk.qa.pages.login.LoginPage"/>
+            <class name="com.vk.qa.login.LoginTest"/>
             <class name="com.vk.qa.other.OtherTest"/>
         </classes>
 
