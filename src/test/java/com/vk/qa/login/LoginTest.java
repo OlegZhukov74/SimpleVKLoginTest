@@ -10,17 +10,32 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class LoginTest extends BaseTest {
 
-    @DataProvider(name = "loginCredentials", parallel = true)
-    public Object[][] loginCredentials() {
+    @DataProvider(name = "loginCredentialsEmail", parallel = true)
+    public Object[][] loginCredentialsEmail() {
         return new Object[][]{
-                {"qwe@qwe.com", "123456"},
-                {"asd@asd.zxc", "654321"}
+                {"umacte@gmail.com", "xxxxxxxxxxx"},
+//                {"asd@asd.zxc", "654321"}
         };
     }
 
-    @Test(dataProvider = "loginCredentials")
+    @DataProvider(name = "loginCredentialsPhone", parallel = true)
+    public Object[][] loginCredentialsPhone() {
+        return new Object[][]{
+                {"89995847975", "xxxxxxxxxx"},
+//                {"89995847971", "654321"}
+        };
+    }
+
+    @Test(dataProvider = "loginCredentialsEmail")
     public void checkWeCanLoginViaEmail(String email, String password) {
-        MainPage mainPage = open("https://vk.com", MainPage.class);
+        MainPage mainPage = open( System.getProperty("baseUrl"), MainPage.class);
+        FeedPage feedPage = mainPage.login(email, password);
+        feedPage.checkFeedPage();
+    }
+
+    @Test(dataProvider = "loginCredentialsPhone")
+    public void checkWeCanLoginViaPhone(String email, String password) {
+        MainPage mainPage = open( System.getProperty("baseUrl"), MainPage.class);
         FeedPage feedPage = mainPage.login(email, password);
         feedPage.checkFeedPage();
     }
